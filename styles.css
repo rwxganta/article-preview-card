@@ -1,0 +1,259 @@
+/*  RESET  */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+    line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+    scroll-margin-block: 5ex;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+:root {
+
+    /* Colors */
+
+    --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+    --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+    --Grayish-Blue: hsl(212, 23%, 69%);
+    --Light-Grayish-Blue: hsl(210, 46%, 95%);
+
+
+
+    /* Fonts */
+    --ff-base: 'Manrope', sans-serif;
+    --fw-medium: 500;
+    --fw-bold: 700;
+
+    --fs-body: .8rem;
+    --fs-title: 1.125rem;
+}
+
+/* General */
+
+body {
+    font-family: var(--ff-base);
+    font-size: var(--fs-body);
+    color: var(--Desaturated-Dark-Blue);
+    background-color: var(--Grayish-Blue);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body > * {
+    flex-grow: 1;
+}
+
+.flow-content > * + * {
+    margin-block-start: var(--spacer, 1em);
+}
+
+
+/* article */
+
+.article {
+    max-width: 20rem;
+    border-radius: .7rem;
+    overflow: hidden;
+
+    position: relative; /* share popup */
+}
+
+.article__body {
+    padding: 2.5rem 1.875rem 1.25rem;
+    background-color: white;
+}
+
+.article__info {
+    margin-block-start: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.article__title,
+.article__author-name {
+    font-weight: var(--fw-bold);
+    color: var(--Very-Dark-Grayish-Blue);
+}
+
+.article__title {
+    font-size: var(--fs-title);
+}
+
+.article__author {
+    margin-inline-end: 1rem;
+    max-width: 2.5rem;
+    border-radius: 50%;
+}
+
+.article__share {
+    margin-inline-start: auto;
+    padding: .45rem;
+    /*width: 1.875rem;*/
+    /*background-image: url(./images/icon-share.svg);
+    background-repeat: no-repeat;
+    background-position: center center;*/
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 10;
+}
+
+.article__share svg {
+    fill: #6E8098;
+}
+
+.article__share:hover {
+    background-color: var(--Desaturated-Dark-Blue);
+}
+
+.article__share:hover svg {
+    fill: var(--Light-Grayish-Blue);
+}
+
+
+.share__popup {
+    background-color: var(--Very-Dark-Grayish-Blue);
+
+    padding: 1.7rem 2rem;
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    transform-origin: top;
+    transition: transform 300ms;
+}
+
+.article__share:hover ~ .share__popup {
+    transform: translateY(0);
+}
+
+.share__popup p {
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--Grayish-Blue);
+}
+
+.socials {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.socials li {
+    cursor: pointer;
+}
