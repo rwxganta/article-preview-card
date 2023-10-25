@@ -242,7 +242,13 @@ body > * {
     transition: transform 300ms;
 }
 
-.article__share:hover .share__popup {
+/*.article__share:hover .share__popup {
+    transform: translateY(0);
+}*/
+
+.share__popup[data-state=active] {
+    /*opacity: 1;
+    transform: translate(-45%, -80%);*/
     transform: translateY(0);
 }
 
@@ -319,7 +325,12 @@ body > * {
         background-color: var(--Very-Dark-Grayish-Blue);
     }
 
-    .article__share:hover .share__popup {
+    /*.article__share:hover .share__popup {
+        opacity: 1;
+        transform: translate(-45%, -80%);
+    }*/
+
+    .share__popup[data-state=active] {
         opacity: 1;
         transform: translate(-45%, -80%);
     }
