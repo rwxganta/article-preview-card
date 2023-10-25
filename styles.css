@@ -285,6 +285,7 @@ body > * {
     }
 
     .article__info {
+        padding-block-start: unset;
         border-bottom-left-radius: unset;
         position: static;
         overflow: unset;
@@ -295,6 +296,7 @@ body > * {
     }
 
     .share__popup {
+        padding: 1.2rem 2rem;
         width: max-content;
         border-radius: .8rem;
         transform: unset;
@@ -319,6 +321,6 @@ body > * {
 
     .article__share:hover .share__popup {
         opacity: 1;
-        transform: translate(-45%, -60%);
+        transform: translate(-45%, -80%);
     }
 }
